@@ -1,7 +1,15 @@
 package model;
 
-public class Entity {
-    public static float BIRTHRATE = 1f;
-    public static int LIFE_EXPENTACY = 1;
-    public static int INITIAL_POPULATION = 100;
+import controller.SimulationElement;
+
+public abstract class Entity extends SimulationElement {
+    protected boolean isAlive = true;
+    protected int yearsLived = 0;
+
+    @Override
+    public void yearPassed(int currentSimulationYear) {
+        this.age();
+    }
+
+    protected abstract void age();
 }
