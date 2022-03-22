@@ -11,5 +11,9 @@ public abstract class Entity extends SimulationElement {
         this.age();
     }
 
+    public boolean isAlive() {
+        return this.isAlive;
+    }
+
     protected abstract void age();
 }
