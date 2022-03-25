@@ -40,7 +40,8 @@ public class PanelGraphics extends JPanel {
 	private double[] listPointsBirthsHare = {0.0};
 	private double[] listPointsDeathsFoxes = {0.0};
 	private double[] listPointsDeathsHare = {0.0};
-	
+	private double[] listPointsKilledHare = {0.0};
+
 	
 	public PanelGraphics(EventManager eventManager, Simulation simulation) {
 		
@@ -75,7 +76,7 @@ public class PanelGraphics extends JPanel {
         this.add(jLPopulationFoxAndHare);
         
         this.graphicPopulationFoxAndHare.setBounds(20, 30, 300, 300);
-        this.graphicPopulationFoxAndHare.setAxisLabels("A�os", "Animales");
+        this.graphicPopulationFoxAndHare.setAxisLabels("Años", "Animales");
         this.graphicPopulationFoxAndHare.addScatterPlot("Datos", listPointsYearSimulation, listPointsPopulationFox);
         this.graphicPopulationFoxAndHare.addLinePlot("Linea",listPointsYearSimulation, listPointsPopulationFox);
         this.graphicPopulationFoxAndHare.addScatterPlot("Datos", listPointsYearSimulation, listPointsPopulationHare);
@@ -88,7 +89,7 @@ public class PanelGraphics extends JPanel {
         this.add(jLPopulation);
         
         this.graphicPopulationFox.setBounds(640, 30, 280, 150);
-        this.graphicPopulationFox.setAxisLabels("A�os", "Zorros");
+        this.graphicPopulationFox.setAxisLabels("Años", "Zorros");
         this.graphicPopulationFox.addScatterPlot("Datos", listPointsYearSimulation, listPointsPopulationFox);
         this.graphicPopulationFox.addLinePlot("Linea",listPointsYearSimulation, listPointsPopulationFox);
         this.add(graphicPopulationFox);
@@ -263,9 +264,38 @@ public class PanelGraphics extends JPanel {
 	public void setGraphicPopulationHare(Plot2DPanel graphicPopulationHare) {
 		this.graphicPopulationHare = graphicPopulationHare;
 	}
-	
-	
-	
-	
-	
+
+
+	public double[] getListPointsDeathsFoxes() {
+		return listPointsDeathsFoxes;
+	}
+
+	public void setListPointsDeathsFoxes(double[] listPointsDeathsFoxes) {
+		this.listPointsDeathsFoxes = listPointsDeathsFoxes;
+	}
+
+	public double[] getListPointsDeathsHare() {
+		return listPointsDeathsHare;
+	}
+
+	public void setListPointsDeathsHare(double[] listPointsDeathsHare) {
+		this.listPointsDeathsHare = listPointsDeathsHare;
+	}
+
+	public double[] getListPointsKilledHare() {
+		return listPointsKilledHare;
+	}
+
+	public void setListPointsKilledHare(double[] listPointsKilledHare) {
+		this.listPointsKilledHare = listPointsKilledHare;
+	}
+
+	public Plot2DPanel getGraphicDeathsFoxes() {
+		return graphicDeathsFoxes;
+	}
+
+	public Plot2DPanel getGraphicDeathsHare() {
+		return graphicDeathsHare;
+
+	}
 }

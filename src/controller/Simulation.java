@@ -15,6 +15,10 @@ public class Simulation {
     private int currentFoxes = 0;
     private int currentHares = 0;
 
+    private int currentFoxesDeaths = 0;
+    private int currentHaresDeaths = 0;
+    private int currentHaresEaten = 0;
+
     public Simulation(SimulationStartValues simulationStartValues) {
         Fox.INITIAL_POPULATION = simulationStartValues.initialFoxPopulation;
         Fox.BIRTHRATE = simulationStartValues.birthrateFoxes;
@@ -29,11 +33,17 @@ public class Simulation {
     }
 
     public void simulateOneYear() {
-        System.out.println(this.hares.size());
-        System.out.println(this.foxes.size());
+        this.currentFoxesDeaths = 0;
+        this.currentHaresDeaths = 0;
+        this.currentHaresEaten = 0;
         // Remove dead entities from the year prior
+        int haresBefore = this.hares.size();
         this.hares.removeIf(hare -> !hare.isAlive());
+        this.currentHaresDeaths = haresBefore - this.hares.size();
+
+        int foxesBefore = this.foxes.size();
         this.foxes.removeIf(fox -> !fox.isAlive());
+        this.currentFoxesDeaths = foxesBefore - this.foxes.size();
 
         // Make one year pass for every entity
         this.hares.forEach(hare -> hare.yearPassed(this.currentSimulationYear));
@@ -62,6 +72,7 @@ public class Simulation {
                 haresEaten.getAndIncrement();
             }
         });
+        this.currentHaresEaten = haresEaten.get();
     }
 
     private void addEntityBirthrate() {
@@ -95,5 +106,17 @@ public class Simulation {
 
     public int getCurrentHares() {
         return this.currentHares;
+    }
+
+    public int getCurrentFoxesDeaths() {
+        return currentFoxesDeaths;
+    }
+
+    public int getCurrentHaresDeaths() {
+        return currentHaresDeaths;
+    }
+
+    public int getCurrentHaresEaten() {
+        return currentHaresEaten;
     }
 }
