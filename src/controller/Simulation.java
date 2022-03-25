@@ -12,6 +12,8 @@ public class Simulation {
     public Queue<Hare> hares = new LinkedList<>();
 
     private int currentSimulationYear = 0;
+    private int currentFoxes = 0;
+    private int currentHares = 0;
 
     public Simulation(SimulationStartValues simulationStartValues) {
         Fox.INITIAL_POPULATION = simulationStartValues.initialFoxPopulation;
@@ -27,6 +29,8 @@ public class Simulation {
     }
 
     public void simulateOneYear() {
+        System.out.println(this.hares.size());
+        System.out.println(this.foxes.size());
         // Remove dead entities from the year prior
         this.hares.removeIf(hare -> !hare.isAlive());
         this.foxes.removeIf(fox -> !fox.isAlive());
@@ -64,6 +68,9 @@ public class Simulation {
         int foxesThisYear = (int) (Fox.BIRTHRATE * this.foxes.size());
         int haresThisYear = (int) (Hare.BIRTHRATE * this.hares.size());
 
+        this.currentFoxes = foxesThisYear;
+        this.currentHares = haresThisYear;
+
         for (int i = 0; i < foxesThisYear; i++) {
             this.foxes.add(new Fox());
         }
@@ -80,5 +87,13 @@ public class Simulation {
         for (int i = 0; i < Hare.INITIAL_POPULATION; i++) {
             this.hares.add(new Hare());
         }
+    }
+
+    public int getCurrentFoxes() {
+        return this.currentFoxes;
+    }
+
+    public int getCurrentHares() {
+        return this.currentHares;
     }
 }

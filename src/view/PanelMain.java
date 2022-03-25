@@ -75,12 +75,12 @@ public class PanelMain extends JPanel {
         this.setLayout(null);
         this.setBackground(Color.WHITE);
         
-        this.jLTitle.setText("Simulacion de población de Zorros y Liebres");
+        this.jLTitle.setText("Simulacion de poblaciÃ³n de Zorros y Liebres");
         this.jLTitle.setBounds(70, 0, 750, 60);
         this.jLTitle.setFont(new Font("Arial", 0, 36));
         this.add(jLTitle);
         
-        this.jLYearsSimulate.setText("Años a Simular:");
+        this.jLYearsSimulate.setText("AÃ±os a Simular:");
         this.jLYearsSimulate.setBounds(20, 110, 200, 30);
         this.jLYearsSimulate.setFont(new Font("Arial", 0, 16));
         this.add(jLYearsSimulate);
@@ -112,7 +112,7 @@ public class PanelMain extends JPanel {
         this.jTFLifeExpectationFoxes.setBounds(210, 280, 200, 40);
         this.add(jTFLifeExpectationFoxes);
         
-        this.jLHareIntakePerYear.setText("Consumo liebres por año:");
+        this.jLHareIntakePerYear.setText("Consumo liebres por aÃ±o:");
         this.jLHareIntakePerYear.setBounds(20, 330, 200, 30);
         this.jLHareIntakePerYear.setFont(new Font("Arial", 0, 16));
         this.add(jLHareIntakePerYear);

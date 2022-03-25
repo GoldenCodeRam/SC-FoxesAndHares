@@ -75,7 +75,7 @@ public class PanelGraphics extends JPanel {
         this.add(jLPopulationFoxAndHare);
         
         this.graphicPopulationFoxAndHare.setBounds(20, 30, 300, 300);
-        this.graphicPopulationFoxAndHare.setAxisLabels("Años", "Animales");
+        this.graphicPopulationFoxAndHare.setAxisLabels("Aï¿½os", "Animales");
         this.graphicPopulationFoxAndHare.addScatterPlot("Datos", listPointsYearSimulation, listPointsPopulationFox);
         this.graphicPopulationFoxAndHare.addLinePlot("Linea",listPointsYearSimulation, listPointsPopulationFox);
         this.graphicPopulationFoxAndHare.addScatterPlot("Datos", listPointsYearSimulation, listPointsPopulationHare);
@@ -88,13 +88,13 @@ public class PanelGraphics extends JPanel {
         this.add(jLPopulation);
         
         this.graphicPopulationFox.setBounds(640, 30, 280, 150);
-        this.graphicPopulationFox.setAxisLabels("Años", "Zorros");
+        this.graphicPopulationFox.setAxisLabels("Aï¿½os", "Zorros");
         this.graphicPopulationFox.addScatterPlot("Datos", listPointsYearSimulation, listPointsPopulationFox);
         this.graphicPopulationFox.addLinePlot("Linea",listPointsYearSimulation, listPointsPopulationFox);
         this.add(graphicPopulationFox);
         
         this.graphicPopulationHare.setBounds(330, 30, 280, 150);
-        this.graphicPopulationHare.setAxisLabels("Años", "Liebres");
+        this.graphicPopulationHare.setAxisLabels("Aï¿½os", "Liebres");
         this.graphicPopulationHare.addScatterPlot("Datos", listPointsYearSimulation, listPointsPopulationHare);
         this.graphicPopulationHare.addLinePlot("Linea",listPointsYearSimulation, listPointsPopulationHare);
         this.add(graphicPopulationHare);
@@ -105,13 +105,13 @@ public class PanelGraphics extends JPanel {
         this.add(jLBirths);
         
         this.graphicBirthsFoxes.setBounds(640, 220, 280, 150);
-        this.graphicBirthsFoxes.setAxisLabels("Años", "Zorros");
+        this.graphicBirthsFoxes.setAxisLabels("Aï¿½os", "Zorros");
         this.graphicBirthsFoxes.addScatterPlot("Datos", listPointsYearSimulation, listPointsBirthsFoxes);
         this.graphicBirthsFoxes.addLinePlot("Linea",listPointsYearSimulation, listPointsBirthsFoxes);
         this.add(graphicBirthsFoxes);
         
         this.graphicBirthsHare.setBounds(330, 220, 280, 150);
-        this.graphicBirthsHare.setAxisLabels("Años", "Liebres");
+        this.graphicBirthsHare.setAxisLabels("Aï¿½os", "Liebres");
         this.graphicBirthsHare.addScatterPlot("Datos", listPointsYearSimulation, listPointsBirthsHare);
         this.graphicBirthsHare.addLinePlot("Linea",listPointsYearSimulation, listPointsBirthsHare);
         this.add(graphicBirthsHare);
@@ -122,13 +122,13 @@ public class PanelGraphics extends JPanel {
         this.add(jLDeaths);
         
         this.graphicDeathsFoxes.setBounds(640, 410, 280, 150);
-        this.graphicDeathsFoxes.setAxisLabels("Años", "Zorros");
+        this.graphicDeathsFoxes.setAxisLabels("AÃ±os", "Zorros");
         this.graphicDeathsFoxes.addScatterPlot("Datos", listPointsYearSimulation, listPointsDeathsFoxes);
         this.graphicDeathsFoxes.addLinePlot("Linea",listPointsYearSimulation, listPointsDeathsFoxes);
         this.add(graphicDeathsFoxes);
         
         this.graphicDeathsHare.setBounds(330, 410, 280, 150);
-        this.graphicDeathsHare.setAxisLabels("Años", "Liebres");
+        this.graphicDeathsHare.setAxisLabels("AÃ±os", "Liebres");
         this.graphicDeathsHare.addScatterPlot("Datos", listPointsYearSimulation, listPointsDeathsHare);
         this.graphicDeathsHare.addLinePlot("Linea",listPointsYearSimulation, listPointsDeathsHare);
         this.add(graphicDeathsHare);
