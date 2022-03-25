@@ -4,15 +4,25 @@ import model.Fox;
 import model.Hare;
 
 import java.util.LinkedList;
-import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Simulation {
-    public List<Fox> foxes = new LinkedList<>();
-    public List<Hare> hares = new LinkedList<>();
+    public Queue<Fox> foxes = new LinkedList<>();
+    public Queue<Hare> hares = new LinkedList<>();
 
     private int currentSimulationYear = 0;
 
-    public Simulation() {
+    public Simulation(SimulationStartValues simulationStartValues) {
+        Fox.INITIAL_POPULATION = simulationStartValues.initialFoxPopulation;
+        Fox.BIRTHRATE = simulationStartValues.birthrateFoxes;
+        Fox.LIFE_EXPECTANCY = simulationStartValues.foxLifeExpectancy;
+        Fox.HARE_INTAKE_PER_YEAR = simulationStartValues.hareIntakePerYear;
+
+        Hare.INITIAL_POPULATION = simulationStartValues.initialHarePopulation;
+        Hare.BIRTHRATE = simulationStartValues.birthrateHare;
+        Hare.LIFE_EXPECTANCY = simulationStartValues.hareIntakePerYear;
+
         this.startEntities();
     }
 
@@ -25,12 +35,29 @@ public class Simulation {
         this.hares.forEach(hare -> hare.yearPassed(this.currentSimulationYear));
         this.foxes.forEach(fox -> fox.yearPassed(this.currentSimulationYear));
 
-        // TODO: Make the foxes eat the hares, before the birthrate
+        // Make the foxes eat the hares, before the birthrate
+        this.foxesEatHares();
 
         // The birthrate from this year
         addEntityBirthrate();
 
         currentSimulationYear++;
+    }
+
+    private void foxesEatHares() {
+        AtomicInteger haresEaten = new AtomicInteger();
+
+        this.foxes.forEach(fox -> {
+            for (int i = 0; i < Fox.HARE_INTAKE_PER_YEAR; i++) {
+                if (this.hares.isEmpty()) {
+                    fox.die();
+                    continue;
+                }
+                // Here we can do something if the hare is dead, for the moment we just remove it from the list
+                this.hares.remove();
+                haresEaten.getAndIncrement();
+            }
+        });
     }
 
     private void addEntityBirthrate() {
